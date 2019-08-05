@@ -3,7 +3,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 // Default Export
 import youtube from './api/youtube';
-import { SearchBar, VideoDetail } from './components'
+import { SearchBar, VideoDetail, VideoList } from './components'
 
 
 // Created React Class Based Component - Other is function component
@@ -38,7 +38,7 @@ class App extends React.Component {
                             <VideoDetail video={selectedVideo}/>
                         </Grid>
                         <Grid item xs={4}>
-                            {/* VIDEO LIST */}
+                            <VideoList />
                         </Grid>
                     </Grid>
                 </Grid>
