@@ -1,7 +1,5 @@
 ## React Youtube Clone
-Functional youtube clone with clickable video card sidebar
-
-Practice for ReactJS
+Functional youtube clone with clickable video card sidebar - ReactJS Practice
 
 Uses MaterialUI + Axios
 
