@@ -2,7 +2,10 @@ import React from 'react';
 // Multiple Exports
 import { Grid } from '@material-ui/core';
 // Default Export
-import youtube from '/api/youtube';
+import youtube from './api/youtube';
+import SearchBar from './components/SearchBar';
+import VideoDetail from './components/VideoDetail';
+
 
 // Created React Class Based Component - Other is function component
 class App extends React.Component {
@@ -12,10 +15,10 @@ class App extends React.Component {
                 <Grid item xs={12}>
                     <Grid container spacing={16}>
                         <Grid item xs={12}>
-                            {/* Search Bar */}
+                            <SearchBar />
                         </Grid>
                         <Grid item xs={8}>
-                            {/*VIDEO DETAIL */}
+                            <VideoDetail />
                         </Grid>
                         <Grid item xs={4}>
                             {/* VIDEO LIST */}
