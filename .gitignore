@@ -13,7 +13,7 @@ node_modules/
 *.msi
 *.msm
 *.msp
-
+*.env
 # Windows shortcuts
 *.lnk
 

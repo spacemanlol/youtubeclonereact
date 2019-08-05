@@ -1,10 +1,28 @@
 import React from 'react';
+// Multiple Exports
+import { Grid } from '@material-ui/core';
+// Default Export
+import youtube from '/api/youtube';
 
 // Created React Class Based Component - Other is function component
 class App extends React.Component {
     render() {
         return(
-            <h1>Youtube Clone Test</h1>
+            <Grid justify="center" container spacing={16}>
+                <Grid item xs={12}>
+                    <Grid container spacing={16}>
+                        <Grid item xs={12}>
+                            {/* Search Bar */}
+                        </Grid>
+                        <Grid item xs={8}>
+                            {/*VIDEO DETAIL */}
+                        </Grid>
+                        <Grid item xs={4}>
+                            {/* VIDEO LIST */}
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         )
     }
 }
