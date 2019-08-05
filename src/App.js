@@ -3,8 +3,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 // Default Export
 import youtube from './api/youtube';
-import SearchBar from './components/SearchBar';
-import VideoDetail from './components/VideoDetail';
+import { SearchBar, VideoDetail } from './components'
 
 
 // Created React Class Based Component - Other is function component
