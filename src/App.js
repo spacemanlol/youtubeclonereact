@@ -10,8 +10,12 @@ import { SearchBar, VideoDetail, VideoList } from './components'
 class App extends React.Component {
     // Async as it fetches from YoutubeAPI
     state = {
-        video: [],
+        videos: [],
         selectedVideo: null,
+    }
+
+    onVideoSelect = (video) => {
+        this.setState({selectedVideo: video });
     }
     
     handleSubmit = async (searchTerm) => {
@@ -26,7 +30,7 @@ class App extends React.Component {
         this.setState({videos: response.data.items, selectedVideo: response.data.items[0]})
     }
     render() {
-        const {selectedVideo} = this.state;
+        const {selectedVideo, videos} = this.state;
         return(
             <Grid justify="center" container spacing={10}>
                 <Grid item xs={12}>
@@ -38,7 +42,7 @@ class App extends React.Component {
                             <VideoDetail video={selectedVideo}/>
                         </Grid>
                         <Grid item xs={4}>
-                            <VideoList />
+                            <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
                         </Grid>
                     </Grid>
                 </Grid>
