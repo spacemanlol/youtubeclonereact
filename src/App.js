@@ -10,13 +10,25 @@ import { SearchBar, VideoDetail } from './components'
 class App extends React.Component {
     // Async as it fetches from YoutubeAPI
     handleSubmit = async (searchTerm) => {
-        const response = await youtube.get('search');
+        state = {
+            video: [],
+            selectedVideo: null,
+        }
+        const response = await youtube.get('search', {
+            params: {
+                part: 'snippet',
+                maxResults: 5,
+                key: '[API_KEY]',
+                q: searchTerm,
+            }
+        });
+        this.setState({videos: response.data.items, selectedVideo: response.data.items[0]})
     }
     render() {
         return(
-            <Grid justify="center" container spacing={16}>
+            <Grid justify="center" container spacing={10}>
                 <Grid item xs={12}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={10}>
                         <Grid item xs={12}>
                             <SearchBar onFormSubmit={this.handleSubmit}/>
                         </Grid>
