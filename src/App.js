@@ -9,11 +9,12 @@ import { SearchBar, VideoDetail } from './components'
 // Created React Class Based Component - Other is function component
 class App extends React.Component {
     // Async as it fetches from YoutubeAPI
+    state = {
+        video: [],
+        selectedVideo: null,
+    }
+
     handleSubmit = async (searchTerm) => {
-        state = {
-            video: [],
-            selectedVideo: null,
-        }
         const response = await youtube.get('search', {
             params: {
                 part: 'snippet',
@@ -25,6 +26,7 @@ class App extends React.Component {
         this.setState({videos: response.data.items, selectedVideo: response.data.items[0]})
     }
     render() {
+        const {selectedVideo} = this.state;
         return(
             <Grid justify="center" container spacing={10}>
                 <Grid item xs={12}>
@@ -33,7 +35,7 @@ class App extends React.Component {
                             <SearchBar onFormSubmit={this.handleSubmit}/>
                         </Grid>
                         <Grid item xs={8}>
-                            <VideoDetail />
+                            <VideoDetail video={selectedVideo}/>
                         </Grid>
                         <Grid item xs={4}>
                             {/* VIDEO LIST */}
