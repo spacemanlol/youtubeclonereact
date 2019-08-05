@@ -8,13 +8,17 @@ import { SearchBar, VideoDetail } from './components'
 
 // Created React Class Based Component - Other is function component
 class App extends React.Component {
+    // Async as it fetches from YoutubeAPI
+    handleSubmit = async (searchTerm) => {
+        const response = await youtube.get('search');
+    }
     render() {
         return(
             <Grid justify="center" container spacing={16}>
                 <Grid item xs={12}>
                     <Grid container spacing={16}>
                         <Grid item xs={12}>
-                            <SearchBar />
+                            <SearchBar onFormSubmit={this.handleSubmit}/>
                         </Grid>
                         <Grid item xs={8}>
                             <VideoDetail />
